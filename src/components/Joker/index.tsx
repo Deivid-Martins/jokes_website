@@ -8,7 +8,7 @@ interface jokerProps {
 }
 
 export function Joker() {
-  const [joker, setJoker] = useState<jokerProps>({});
+  const [joker, setJoker] = useState<jokerProps | null>(null);
 
   const getAnotherJoker = async () => {
     const response = await fetch('https://v2.jokeapi.dev/joke/Any?type=twopart');
@@ -28,13 +28,13 @@ export function Joker() {
       </GenerateJokerButton>
       
       <JokerLineContainer>
-        <p>{joker.setup}</p>
+        <p>{joker && joker.setup}</p>
       </JokerLineContainer>
       <section>
         <PiCaretCircleDownFill size={32} color="#111" />
       </section>
       <JokerLineContainer>
-        <DeliveryBlock>{joker.delivery}</DeliveryBlock>
+        <DeliveryBlock>{joker && joker.delivery}</DeliveryBlock>
       </JokerLineContainer>
     </JokerContainer>
   );
