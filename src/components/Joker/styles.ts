@@ -43,7 +43,7 @@ export const DeliveryBlock = styled.p`
   padding: 0.5rem;
 
   &::after {
-    content: 'hover me';
+    content: 'Hover me';
     position: absolute;
     color: #CC5500;
     font-weight: bold;
@@ -58,6 +58,12 @@ export const DeliveryBlock = styled.p`
 
   &:hover::after {
     display: none;
+  }
+
+  @media (max-width: 1000px) {
+    &::after {
+      content: "Touch here";
+    }
   }
 `;
 
